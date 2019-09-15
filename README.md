@@ -1,5 +1,6 @@
-
-Individual Belt Exam Project created 19 January 2019 and completed 13 September 2019
+Alternate Programming Assignment<br>
+M. Andrew Williams<br>
+Created: 13 September 2019
 
 INTRODUCTION:
 --------------------
