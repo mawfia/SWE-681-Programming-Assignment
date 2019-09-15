@@ -56,7 +56,7 @@ TECHNOLOGY USED:
 
 5.  Express.js, Nginx, and PM2 were used for server deployment, routing, and execution with data and template client-side service requests handled with Angular 6 and its routing dependency.
 
-6.  The application is deployed on a AWS account for cloud services including Ubuntu configuration and management.
+6.  The application is deployed on a Azure cloud services including Ubuntu configuration and management.
 
 This web application may be viewed at: http://mawfia.eastus.cloudapp.azure.com/
 
