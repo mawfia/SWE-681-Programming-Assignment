@@ -63,4 +63,4 @@ This web application may be viewed at: http://mawfia.eastus.cloudapp.azure.com/
 Current Maintainer:
  * M. Andrew Williams
 
-This is an alternate programming assignment proposed to and appproved by Dr. Wheeler
+This is an alternate programming assignment proposed to and appproved by Dr. Wheeler.
