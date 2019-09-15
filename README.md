@@ -9,8 +9,8 @@ This is a MongoDB, Express.js, Angular 6, Node.js prototype designed, built, and
 INTRO:
 --------------------
 
--This application was built as part of a Coding Dojo belt exam culminating 2 months of material including HTML, CSS, JavaScript, Typescript,
-Bootstrap, Angular 6, Express, Node, Mongo and the various ways of using these technologies to develop a modern day application.  As the
+-This application was built as an alternate programming assignment culminating 6 months of material including HTML, CSS, JavaScript, Typescript,
+Angular 6, Express, Node, Mongo and the various ways of using these technologies to develop a modern day application.  As the
 third belt exam we were given 48 hours to start and finsh an application including testing and deployment with the following requirements:
 
 1. CRUD operations all working.
