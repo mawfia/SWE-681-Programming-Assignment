@@ -4,7 +4,7 @@ Created: 13 September 2019
 
 INTRODUCTION:
 --------------------
-This is a MongoDB, Express.js, Angular 6, Node.js prototype designed, built, and deployed to cloud services over a period of 2 days.
+This is a non-sercure MongoDB, Express.js, Angular 6, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.
 **Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**
 
 SUMMARY:
@@ -43,7 +43,7 @@ third belt exam we were given 48 hours to start and finsh an application includi
 
 HOW TO USE:
 ---------------------
-This is a sample movie review page that allows you to read, write, or delete reviews.  Buttons are labelled according to their action.
+This is a prototypte bicycle marketplace application that allows you to read, write, or delete bicycles.  View wireframes above for 'how to use'.
 
 
 TECHNOLOGY USED:
