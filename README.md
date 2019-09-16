@@ -1,10 +1,10 @@
-Alternate Programming Assignment<br>
+Alternate Programming Assignment for SWE 681 Taught by Dr. Wheeler<br>
 M. Andrew Williams<br>
 Created: 13 September 2019
 
 INTRODUCTION:
 --------------------
-This is a non-sercure MongoDB, Express.js, Angular 6, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.
+This is a non-sercure MongoDB, Express.js, Angular 6, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.  This applciation may also be viewed from mobile devices.
 **Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**
 
 SUMMARY:
@@ -43,7 +43,7 @@ third belt exam we were given 48 hours to start and finsh an application includi
 
 HOW TO USE:
 ---------------------
-This is a prototypte bicycle marketplace application that allows you to read, write, or delete bicycles.  View wireframes above for 'how to use'.
+This is a prototypte bicycle marketplace application that allows you to read, write, or delete bicycles.  View wireframes above for 'how to use'.  You may login using test@test.com, password !QAZzaq1 or create your own account.
 
 
 TECHNOLOGY USED:
