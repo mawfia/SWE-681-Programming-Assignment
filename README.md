@@ -14,11 +14,11 @@ SUMMARY:
 Angular 6, Express, Node, Mongo and the various ways of using these technologies to develop a modern day application.  As the
 third belt exam we were given 48 hours to start and finsh an application including testing and deployment with the following requirements:
 
-1. CRUD operations currently working.
-	a. Able to create new account.
-	b. All user bicycles displayed at my_bicycles.
-	c. All bicycles displayed at bicycles_list.
-	c. Able to update bicycle(s).
+1. CRUD operations currently working.<br>
+	a. Able to create new account.<br>
+	b. All user bicycles displayed at my_bicycles.<br>
+	c. All bicycles displayed at bicycles_list.<br>
+	c. Able to update bicycle(s).<br>
 	d. Able to add bicycle.
 2. Routing.
 	a. Root route redirects to'/' to display login screen.
