@@ -4,7 +4,7 @@ Created: 13 September 2019
 
 INTRODUCTION:
 --------------------
-This is a non-sercure MongoDB, Express.js, Angular 6, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.  This applciation may also be viewed from mobile devices.
+This is a non-sercure MongoDB, Express.js, Angular 6, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.  This applciation may also be viewed from mobile devices.<br>
 **Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**
 
 SUMMARY:
