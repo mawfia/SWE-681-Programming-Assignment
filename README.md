@@ -4,7 +4,7 @@ Created: 13 September 2019
 
 INTRODUCTION:
 --------------------
-This is a non-sercure MongoDB, Express.js, Angular 6, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.  This applciation may also be viewed from mobile devices.<br>
+This is a non-sercure MongoDB, Express.js, Angular 8, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.  This applciation may also be viewed from mobile devices.<br>
 **Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**
 
 SUMMARY:
@@ -56,7 +56,7 @@ TECHNOLOGY USED:
 
 4.  SHA256 was used as a salt/hash algorithm to obsfuscate each user's password stored in Mongodb.
 
-5.  Express.js, Nginx, and PM2 were used for server deployment, routing, and execution with data and template client-side service requests handled with Angular 6 and its routing dependency.
+5.  Express.js, Nginx, and PM2 were used for server deployment, routing, and execution with data and template client-side service requests handled with Angular 8 and its routing dependency.
 
 6.  The application is deployed on a Azure cloud services including Ubuntu 18.04 configuration and management.
 
