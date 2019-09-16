@@ -4,7 +4,7 @@ Created: 13 September 2019
 
 INTRODUCTION:
 --------------------
-This is a non-sercure MongoDB, Express.js, Angular 8, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.  This applciation may also be viewed from mobile devices.<br><br>
+This is a non-sercure MongoDB, Express.js, Angular 8, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.  This applciation is best viewed on desktop but will gradually become more mobile dedvice friendly.<br><br>
 **Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**
 
 SUMMARY:
@@ -14,17 +14,18 @@ SUMMARY:
 Angular 6, Express, Node, Mongo and the various ways of using these technologies to develop a modern day application.  As the
 third belt exam we were given 48 hours to start and finsh an application including testing and deployment with the following requirements:
 
-1. CRUD operations all working.
+1. CRUD operations currently working.
 	a. Able to create new account.
-	b. All bicycles displayed upon logging into the website.
-	c. User may choose to read the reviews of a particular movie
+	b. All user bicycles displayed at my_bicycles.
+	c. All bicycles displayed at bicycles_list.
+	c. Able to update bicycle(s).
 	d. Able to add bicycle.
-	e. Able to delete own bicycles.
 2. Routing.
-	a. Root route redirects to'/' to display home screen.
+	a. Root route redirects to'/' to display login screen.
 	b. Route '/dashboard' user's home screen. (Successful registration redirects to the dashboard)
 	c. Route '/my_bicycles' displays user's bicycles.
 	d. Route '/bicycles' displays all available bicycles including user.
+	e. When logged in '/' redirects to User's dashboard.
 3. Backend validations.
 	a. All bicycles must have a title of at least 3 characters
 	b. Upon creating a bicycle, an image must be provided.
