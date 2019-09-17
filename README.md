@@ -4,15 +4,14 @@ Created: 13 September 2019
 
 INTRODUCTION:
 --------------------
-This is a non-sercure MongoDB, Express.js, Angular 8, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.  This applciation is best viewed on desktop but will gradually become more mobile dedvice friendly.<br><br>
+This is a non-sercure MongoDB, Express.js, Angular 8, Node.js prototype application designed, built, and deployed to cloud services over a period of 3 days.  This applciation is best viewed on desktop with mobile device awareness that will gradually become more friendly.<br><br>
 **Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**
 
 SUMMARY:
 --------------------
 
--This application was built as an alternate programming assignment culminating 6 months of material including HTML, CSS, JavaScript, Typescript,
-Angular 6, Express, Node, Mongo and the various ways of using these technologies to develop a modern day application.  As the
-third belt exam we were given 48 hours to start and finsh an application including testing and deployment with the following requirements:
+-This application is being built as an alternate programming assignment culminating 6 months of material and the various ways of developing a secure modern day application.  
+Project requirements here:
 
 1. CRUD operations currently working.<br>
 	a. Able to create new account.<br>
@@ -27,16 +26,14 @@ third belt exam we were given 48 hours to start and finsh an application includi
 	d. Route '/bicycles' displays all available bicycles including user.
 	e. When logged in '/' redirects to User's dashboard.
 3. Backend validations.
-	a. All bicycles must have a title of at least 3 characters
+	a. All bicycles must have a title of at least 2 characters
 	b. Upon creating a bicycle, an image must be provided.
 	c. Reviews must have the name of the reviewer, a star rating, and content
 	d. A reviewer's name must be at least 3 characters
 	e. A review star rating must be between 1 and 5 stars
-	f. The content of a review must be at least 3 characters
-	g. Error messages inform the user if a movie or review is not meeting requirements.
+	f. The description of a bicycle must be at least 2 characters
+	g. Error messages inform the user if a bicycle is not meeting requirements.
 	h. Error messages are custom-writtin (not mongoose default messages)
-4. HTML and CSS reflect the wirefram to at lesat 75% accuracy.
-5. You must be able to deploy your work to Amazon EC2 and provide the IP address or subdomain/domain name to where your work has been deployed.
 
 ![Image of Yaktocat](http://mawfia.com/documents/bicycle1.png)
 ![Image of Yaktocat](http://mawfia.com/documents/bicycle2.png)
