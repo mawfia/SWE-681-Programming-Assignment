@@ -5,8 +5,20 @@ Updated: 10 November 2019
 
 INTRODUCTION:
 --------------------
-This is a non-secure MongoDB, Express.js, Angular 8, Node.js prototype application.  This application is also best viewed on desktop with mobile device awareness that will gradually become more PWA friendly.<br><br>
+This is a MongoDB, Express.js, Angular 8, Node.js prototype application.  This application is also best viewed on desktop with mobile device awareness that will gradually become more PWA friendly.<br><br>
 **Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**
+
+UPDATES:
+--------------------
+As of November the following functionality has been implemented:
+User account CRUD - CR 100%, (No current plan for update or delete).
+Bicycle listing CRUD - CRU 100%, (Delete is forthcoming).
+<ul>Bidding - bicycles can be in one of three states:
+  <li>Inactive - bicycle created by user, not viewable by other users or posted in active listing section</li>
+  <li>Active - bicycle listed on main page with the following requirements</li>
+  <li>Accession</li>
+</ul>
+
 
 SUMMARY:
 --------------------
