@@ -10,9 +10,9 @@ This is a MongoDB, Express.js, Angular 8, Node.js prototype application.  This a
 
 UPDATES:
 --------------------
-As of November the following functionality has been implemented:
+<p>As of November the following functionality has been implemented:<p>
 User account CRUD - CR 100%, (No current plan for update or delete).
-Bicycle listing CRUD - CRU 100%, (Delete is forthcoming).
+<p>Bicycle listing CRUD - CRU 100%, (Delete is forthcoming).</p>
 <ul>Bidding - bicycles can be in one of three states:
   <li>Inactive - bicycle created by user, not viewable by other users or posted in active listing section</li>
   <li>Active - bicycle listed on main page with the following requirements</li>
