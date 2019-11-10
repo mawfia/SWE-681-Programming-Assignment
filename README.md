@@ -6,7 +6,7 @@ Updated: 10 November 2019<br>
 INTRODUCTION:
 --------------------
 This is a MongoDB, Express.js, Angular 8, Node.js prototype application.  This application is also best viewed on desktop with mobile device awareness that will gradually become more PWA friendly.<br><br>
-**Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**
+<marquee>Still under construction, security features covered during SWE 681 will be implemented as the course progresses.</marquee>
 
 UPDATES:
 --------------------
@@ -35,10 +35,10 @@ Project requirements here:
 
 HOW TO USE:
 ---------------------
-This is a prototype bicycle marketplace application that allows you to read, write, or delete bicycles.  View wireframes above for 'how to use'.  You may login using test@test.com, password !QAZzaq1 or create your own account.
+Production environment contains a prototype application that allows you to read, write, or delete bicycles.  View wireframes above for 'how to use'.  You may login using test@test.com, password !QAZzaq1 or create your own account.
 
 
-This web application may be viewed at: http://mawfia.eastus.cloudapp.azure.com/
+Production environment may be viewed at: http://mawfia.eastus.cloudapp.azure.com/
 
 Current Maintainer:
  * M. Andrew Williams
