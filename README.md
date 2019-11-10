@@ -21,12 +21,13 @@ As of 10 Nov the following features are fully functional in the development envi
         <ul>
           <li>Auction closing date is a future date and time of 90 days or less.</li>
           <li>Minimum closing price (amount that must be matched in order to win auction) is selected.</li>
-          <li>Starting price (minimum amount in order to bid for bicycle) is selected.<li>
+          <li>Starting price (minimum amount in order to bid for bicycle) is selected.</li>
         </ul>
       </li>
       <li>Accession - bicycle listing ended and auction bidding matches or exceeds the minimum closing price.</li>
     </ul>
 </ul>
+
 
 
 SUMMARY:
