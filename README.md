@@ -6,7 +6,7 @@ Updated: 10 November 2019<br>
 INTRODUCTION:
 --------------------
 This is a MongoDB, Express.js, Angular 8, Node.js prototype application.  This application is also best viewed on desktop with mobile device awareness that will gradually become more PWA friendly.<br><br>
-<marquee>Still under construction, security features covered during SWE 681 will be implemented as the course progresses.</marquee>
+<p><marquee>**Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**</marquee></p>
 
 UPDATES:
 --------------------
