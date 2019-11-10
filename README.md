@@ -2,11 +2,12 @@ Alternate Programming Assignment for SWE 681 taught by Dr. Wheeler<br>
 M. Andrew Williams<br>
 Created: 11 September 2019<br>
 Updated: 10 November 2019<br>
+Scheduled Release Date: 3 December 2019<br>
 
 INTRODUCTION:
 --------------------
 This is a MongoDB, Express.js, Angular 8, Node.js prototype application.  This application is also best viewed on desktop with mobile device awareness that will gradually become more PWA friendly.<br><br>
-<p><em>**Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**</em></p>
+<p><b>**Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**</b></p>
 
 UPDATES:
 --------------------
@@ -28,7 +29,19 @@ As of 10 Nov the following features are fully functional in the development envi
     </ul>
 </ul>
 
+The following security features to be implemented by the scheduled release date:
+<ul>
+<li>All routes (canonical URLS and endpoints) are only accessible by authorization and authentication.</li>
+<li>CORS prevention</li>
+<li>CSRF/XSRF countermeasures</li>
+<li>XSS countermeasures</li>
+<li>NoSQL Injection countermeasures</li>
+<li>Buffer overflow countermeasures</li>
+<li>Session Fixation countermeasures<li>
+<li>Event Logging</li>
+</ul>
 
+<b>The above features will be available in the production environment application by the scheduled release date.  Code will also be made public at this time.</b>
 
 SUMMARY:
 --------------------
@@ -42,7 +55,7 @@ Project requirements here:
 
 HOW TO USE:
 ---------------------
-Production environment contains a prototype application that allows users to read, write, or update bicycles.  View wireframes above for 'how to use'.  You may login using test@test.com, password !QAZzaq1 or create your own account.
+Production environment contains a prototype application that allows users to read, write, or update bicycles.  Wireframes show 'how to use' and will be updated to show bidding.  You may login using test@test.com, password !QAZzaq1 or create your own account.
 
 
 Production environment application may be viewed at: http://mawfia.eastus.cloudapp.azure.com/
