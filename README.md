@@ -35,7 +35,7 @@ As of 10 Nov the following features are fully functional in the staging environm
           <li>Only title and description may be updated when in active status.</li>
           <li>All users may bid on bicycles EXCEPT their own listings.</li>
           <li>All logged in users can see updates to active listings in real-time.</li>
-          <b><li>Active listings revert to "<i>inactive</i>" status if minimum closing price is not matched or exceed by closing date and time of auction.</li></b>
+          <b><li>Active listings revert to "<i>inactive</i>" status if minimum closing price is not matched or exceeded by closing date and time of auction.</li></b>
         </ul>
       </li>
       <li>Accession - bicycle listing ended and auction bidding matches or exceeds the minimum closing price. Bicycles in this status are only viewable to the winner.</li>
