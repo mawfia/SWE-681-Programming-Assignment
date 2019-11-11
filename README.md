@@ -17,15 +17,25 @@ As of 10 Nov the following features are fully functional in the development envi
   <li>Bicycle listing CRUD - CRU 100%, (Delete is forthcoming).</li>
   <li>Bidding - user created bicycles can be in one of three states:</li>
     <ul>
-      <li>Inactive - bicycle created by user, not viewable by other users or posted in active listing section.</li>
+      <li>Inactive - bicycle created by user that can be updated or deleted. Not viewable by other users or posted in active listing section.
+      <ul>
+        <li>Must have an image</li>
+        <li>Must have a title</li>
+        <li>Must have a description</li>
+        <li>Must have city and state for location</li>
+        <li>Must have minimum closing price (amount that must be matched in order to win auction)</li>
+        <li>Must have a starting price (minimum amount in order to bid for bicycle)</li>
+      </ul>
+      </li>
       <li>Active - bicycle listed on main page with the following requirements:
         <ul>
           <li>Auction closing date is a future date and time of 90 days or less.</li>
-          <li>Minimum closing price (amount that must be matched in order to win auction) is selected.</li>
-          <li>Starting price (minimum amount in order to bid for bicycle) is selected.</li>
+          <li>Minimum closing price is correct.</li>
+          <li>Starting price is correct.</li>
+          <li>Only title and description may be updated when in active status.</li>
         </ul>
       </li>
-      <li>Accession - bicycle listing ended and auction bidding matches or exceeds the minimum closing price.</li>
+      <li>Accession - bicycle listing ended and auction bidding matches or exceeds the minimum closing price. Only viewable to winner of bicycle.</li>
     </ul>
 </ul>
 
