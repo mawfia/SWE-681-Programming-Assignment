@@ -33,7 +33,11 @@ As of 10 Nov the following features are fully functional in the staging environm
           <li>Minimum closing price is within pre-defined limits.</li>
           <li>Starting price is within pre-defined limits.</li>
           <li>Only title and description may be updated when in active status.</li>
+<<<<<<< HEAD
           <li>All users may bid on bicycles EXCEPT their own listings.</li>
+=======
+          <li>All users may bid on bicycles <span style="color: red">EXCEPT</span> their own listings.</li>
+>>>>>>> 2dfb9a78caa8a015c68c3a88eb2415328af1b30a
           <li>All logged in users can see updates to active listings in real-time.</li>
           <b><li>Active listings revert to "<i>inactive</i>" status if minimum closing price is not matched or exceed by closing date and time of auction.</li></b>
         </ul>
