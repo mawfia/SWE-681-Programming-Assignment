@@ -29,15 +29,16 @@ As of 10 Nov the following features are fully functional in the staging environm
       </li>
       <li>Active - bicycle listed on main page with the following requirements:
         <ul>
-          <li>Auction closing date is a future date and time of 90 days or less.</li>
-          <li>Minimum closing price is correct.</li>
-          <li>Starting price is correct.</li>
+          <li>Auction closing date is a future date and time of: 90 days or less.</li>
+          <li>Minimum closing price is within pre-defined limits.</li>
+          <li>Starting price is within pre-defined limits.</li>
           <li>Only title and description may be updated when in active status.</li>
-          <li>All users EXCEPT the seller (or owner) may bid on active listings.</li>
-          <li>All logged in users will see updates to active listings in real-time.</li>
+          <li>All users may bid on bicycles <span style="color: red;">EXCEPT</span> their own listings.</li>
+          <li>All logged in users can see updates to active listings in real-time.</li>
+          <b><li>Active listings revert to "<i>inactive</i>" status if minimum closing price is not matched or exceed by closing date and time of auction.</li></b>
         </ul>
       </li>
-      <li>Accession - bicycle listing ended and auction bidding matches or exceeds the minimum closing price. Only viewable to winner of bicycle.</li>
+      <li>Accession - bicycle listing ended and auction bidding matches or exceeds the minimum closing price. Bicycles in this status are only viewable to the winner.</li>
     </ul>
 </ul>
 
@@ -54,7 +55,7 @@ The following security features are being added in the development environment a
 <li>Stronger Salt/Hash algorithm (if time allows)</li>
 </ol>
 
-<b>The above features will be available in the production environment application by the scheduled release date.  Code will also be made public at this time.</b>
+<b>All above features will be available in the production environment application by the scheduled release date.  Code will also be made public at this time.</b>
 
 SUMMARY:
 --------------------
@@ -68,7 +69,7 @@ Project requirements here:
 
 HOW TO USE:
 ---------------------
-Production environment contains a prototype application allowing users to read, write, or update bicycles.  Wireframes show 'how to use' and will be updated to show bidding.  You may login using test@test.com, password !QAZzaq1 or create your own account.
+Production environment contains a prototype application allowing users to create, view, update, auction, or bid on bicycle listings.  Wireframes depict 'how to use' and will eventually be updated to show bidding procedures.  Login with "test@test.com", password "!QAZzaq1" or create your own account.
 
 
 Production environment application may be viewed at: http://mawfia.eastus.cloudapp.azure.com/
