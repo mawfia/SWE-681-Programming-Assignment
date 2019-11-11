@@ -33,13 +33,15 @@ As of 10 Nov the following features are fully functional in the staging environm
           <li>Minimum closing price is correct.</li>
           <li>Starting price is correct.</li>
           <li>Only title and description may be updated when in active status.</li>
+          <li>All users EXCEPT the seller (or owner) may bid on active listings.</li>
+          <li>All logged in users will see updates to active listings in real-time.</li>
         </ul>
       </li>
       <li>Accession - bicycle listing ended and auction bidding matches or exceeds the minimum closing price. Only viewable to winner of bicycle.</li>
     </ul>
 </ul>
 
-The following security features are being added in the development environment and will be viewable in production environment by the scheduled release date:
+The following security features are being added in the development environment and will be in staging by 28 November:
 <ol>
 <li>All routes (canonical URLS and endpoints) are only accessible by authorization and authentication.</li>
 <li>NoSQL Injection countermeasures</li>
