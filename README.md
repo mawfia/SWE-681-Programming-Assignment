@@ -11,7 +11,7 @@ This is a MongoDB, Express.js, Angular 8, Node.js, Socket.io application.  This 
 
 UPDATES:
 --------------------
-As of 10 Nov the following features are fully functional in the development environment application:
+As of 10 Nov the following features are fully functional in the staging environment:
 <ul>
   <li>User account CRUD - CR 100%, (No current plan for update or delete).</li>
   <li>Bicycle listing CRUD - CRU 100%, (Delete is forthcoming).</li>
@@ -39,7 +39,7 @@ As of 10 Nov the following features are fully functional in the development envi
     </ul>
 </ul>
 
-The following security features to be implemented by the scheduled release date:
+The following security features are being added in the development environment and will be viewable in production environment by the scheduled release date:
 <ol>
 <li>All routes (canonical URLS and endpoints) are only accessible by authorization and authentication.</li>
 <li>NoSQL Injection countermeasures</li>
