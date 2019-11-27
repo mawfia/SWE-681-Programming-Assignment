@@ -52,6 +52,7 @@ The following security features are being added in the development environment a
 <li>CSRF/XSRF countermeasures</li>
 <li>XSS countermeasures</li>
 <li>Session Fixation countermeasures</li>
+<li>TOCTOU Race Conditions</li>
 <li>Stronger Salt/Hash algorithm (if time allows)</li>
 </ol>
 
