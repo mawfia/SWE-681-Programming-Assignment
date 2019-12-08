@@ -1,8 +1,8 @@
 Alternate Programming Assignment for SWE 681 taught by Dr. Wheeler<br>
 M. Andrew Williams<br>
 Created: 11 September 2019<br>
-Updated: 10 November 2019<br>
-Scheduled Release Date: 3 December 2019<br>
+Updated: 8 December 2019<br>
+Scheduled Release Date: 13 December 2019<br>
 
 INTRODUCTION:
 --------------------
@@ -11,7 +11,7 @@ This is a MongoDB, Express.js, Angular 8, Node.js, Socket.io application.  This 
 
 UPDATES:
 --------------------
-As of 10 Nov the following features are fully functional in the staging environment:
+As of 8 Dec the following features are fully functional in the staging environment:
 <ul>
   <li>User account CRUD - CR 100%, (No current plan for update or delete).</li>
   <li>Bicycle listing CRUD - CRU 100%, (Delete is forthcoming).</li>
@@ -42,7 +42,7 @@ As of 10 Nov the following features are fully functional in the staging environm
     </ul>
 </ul>
 
-The following security features are being added in the development environment and will be in staging by 28 November:
+The following security features are fully functional in the development environment and are currently being tested in the staging environment:
 <ol>
 <li>All routes (canonical URLS and endpoints) are only accessible by authorization and authentication.</li>
 <li>NoSQL Injection countermeasures</li>
@@ -56,7 +56,7 @@ The following security features are being added in the development environment a
 <li>Stronger Salt/Hash algorithm (if time allows)</li>
 </ol>
 
-<b>All above features will be available in the production environment application by the scheduled release date.  Code will also be made public at this time.</b>
+<b>All above features will be available in the production environment application by the scheduled release date (Was incorrectly stated as 3 December instead of 13 December).  Code will also be made public at this time.</b>
 
 SUMMARY:
 --------------------
