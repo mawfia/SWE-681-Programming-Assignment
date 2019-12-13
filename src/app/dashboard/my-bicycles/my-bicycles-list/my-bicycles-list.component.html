@@ -1,0 +1,79 @@
+<ng-template [ngIf]="bicycles.length == 0" [ngIfElse]="bicycleList">
+	<h1 style="text-align:center; color: blue;">No bicycles in list.</h1>
+</ng-template>
+<ng-template #bicycleList>
+	<div class="bicycle" *ngIf="my_bicycles.length > 0">
+		<h2>Edit/Delete Listings</h2>
+		<form *ngFor="let bicycle of my_bicycles, let i = index" #formData='ngForm' novalidate>
+			<div>
+				<input
+					ng2FileSelect
+					[uploader]="uploader"
+					type="file" 
+					name="image" 
+					required 
+					[(ngModel)]="bicycle.file" 
+					#file="ngModel" 
+					(change)="previewImage($event, i, bicycle)"
+				/>
+				<img src="{{URL}}{{bicycle.image}}" id="bicycle{{i}}" alt="Image Required" accept="image/*">
+				<span style="display: inline-block;" *ngIf=" errors && errors.image_id == i" id="error1" class="error"><b>{{errors.image}}</b></span>
+			</div>
+			<div>
+				<label>Title:</label>
+				<input
+					type="text"
+					name="title"
+					required
+					minlength="2"
+					maxlength="25"
+					[(ngModel)]="bicycle.title"
+					#title="ngModel"
+				/><h4><span *ngIf="title.errors && title.dirty" class="warning"> Title must be valid.</span>
+					<span *ngIf="!title.errors && title.dirty" class="valid"> Valid.</span>
+				</h4>
+				<label>Description:</label>
+				<textarea 
+					name="description" 
+					required
+					maxlength="200"
+					rows="4" 
+					cols="50" 
+					[(ngModel)]="bicycle.description"
+					#description="ngModel"
+				></textarea>
+			</div>
+			<div>
+				<label>Price:</label>
+				<input
+					type="text"
+					name="price"
+					required
+					minlength="1"
+					maxlength="10"
+					pattern="^\$?[\d,]+(\.\d*)?$"
+					[(ngModel)]="bicycle.price"
+					#price="ngModel"
+				/><h4><span *ngIf="price.errors && price.dirty" class="warning"> Price must be valid.</span>
+					<span *ngIf="!price.errors && price.dirty" class="valid"> Valid.</span>
+				</h4>
+				<label>Location:</label>
+				<input
+					type="text"
+					name="location"
+					required
+					placeholder="Austin, TX"
+					pattern="^[a-zA-Z]{3,45}, ?[a-zA-Z]{2}$"
+					[(ngModel)]="bicycle.location"
+					#location="ngModel"
+				/><h4 id="location"><span *ngIf="location.errors && location.dirty" class="warning"> Location must be city, state abbreviation (i.e. Arlington, VA).</span>
+				<span *ngIf="!checkState(bicycle.location) && location.dirty" class="error"> Invalid city or state.</span>
+					<span *ngIf="!location.errors && location.dirty && checkState(bicycle.location)" class="valid"> Valid city and state.</span>
+				</h4>
+				<button (click)="update(formData.value, bicycle._id, bicycle.image)" [disabled]="title.errors || description.errors || price.errors || location.errors || 
+				(title.untouched && description.untouched && price.untouched && location.untouched && file.untouched)">Update</button>
+			</div>
+		</form>
+		<!-- <span *ngIf="error" class="error" style="text-align:center;">{{ error }}</span> -->
+	</div>
+</ng-template>

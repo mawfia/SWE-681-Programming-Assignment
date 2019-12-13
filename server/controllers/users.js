@@ -1,0 +1,98 @@
+const crypto = require('crypto');
+const User = require('./../models/user.js');
+const mongoose = require('./../config/mongoose.js');
+const path = require('path');
+
+const createKey = () => {
+    let key = '';
+    // Creates a random 10-characters (hex values, 0-f) long string
+    for(let x = 0; x < 10; x++) key += Math.random() > .5 ? Math.floor(Math.random()*10).toString() : String.fromCharCode(122 - Math.floor(Math.random()*26));
+    return key;
+}
+
+const completeLogin = (request, response, user) => {
+	user.password = null;
+	user.key = null;
+	user.__v = null;
+    request.session.user = user;
+	response.cookie('userID', user._id.toString());
+	response.cookie('expiration', Date.now() + 86400 * 1000);
+}
+
+module.exports = {
+
+    register : (request, response) => {
+
+		delete request.body.cpassword;
+        let user = new User();
+        for(let field in request.body) user[field] = request.body[field];
+			
+        user.save( err => {
+            if(err) {
+                let errors = {};
+				for(let error in err.errors) errors[error] = (err.errors[error].message);
+				return response.json({message: 'Error', errors: errors});
+            }
+            else {
+                user.key = createKey();
+                let hpassword = crypto.createHmac('sha256', user.key).update(request.body.password).digest('hex');
+
+                User.updateOne({_id:user._id},{$set:{password:hpassword, key:user.key}}, err => {
+                    completeLogin(request, response, user);
+                    return response.json({message: 'Success', user: user});;
+                });
+            }
+        })
+    },
+
+    login : (request, response) => {
+
+        User.findOne({email:request.body.email},(err, user) => {
+
+            if(err) {
+				let errors = {};
+				for(let error in err.errors) errors[error] = (err.errors[error].message);
+				return response.json({message: 'Error', errors : errors});
+			}
+
+            if(user){
+                if(user.password == crypto.createHmac('sha256', user.key).update(request.body.password).digest('hex')){
+                    completeLogin(request, response, user);
+                    return response.json({message: 'Success', user: user});
+                }
+                else{
+                    return response.json({message: 'Error', error : "Invalid Password Entered."});
+                }
+            }
+            else {
+                return response.json({message: 'Error', error : "User not found."});
+            }
+        })
+
+    },
+	
+	getLoggedInUser: (request, response) => {
+
+		User.findOne({_id: mongoose.Types.ObjectId(request.body.id) }, (err, user) => {
+				user.password = null;
+				user.key = null;
+				user.__v = null;
+				return response.json({user:user});
+			}
+		)
+	},
+
+    logout : (request, response) => {
+
+        request.session.destroy;
+		response.clearCookie('userID');
+		response.clearCookie('expiration');
+		return response.json(true);
+    },
+	
+	all : (request, response) => {
+		
+		return response.sendFile(path.resolve("./dist/index.html"));
+	}
+
+}
