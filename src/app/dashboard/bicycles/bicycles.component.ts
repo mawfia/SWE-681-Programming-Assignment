@@ -33,7 +33,6 @@ export class BicyclesComponent implements OnInit, OnDestroy {
 
     this.subscription3 = this._socket.getMessages().subscribe( result => { this._bicycleService.index(); });
 
-    //console.log(this._authenticationService.getFirstName());
      this._authenticationService.getLoggedInUser().subscribe( success => { this.user = success['user']; });
 
      this.subscription = this._bicycleService.bicyclesObservers.subscribe(
@@ -43,7 +42,6 @@ export class BicyclesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    //this.subscription.unsubscribe();
     this.subscription3.unsubscribe();
   }
 

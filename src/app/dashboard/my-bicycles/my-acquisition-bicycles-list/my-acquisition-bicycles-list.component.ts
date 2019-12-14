@@ -33,7 +33,6 @@ export class MyAcquisitionBicyclesListComponent implements OnInit, OnChanges, On
   }
 
   ngOnDestroy(){
-    //this.subscription.unsubscribe();
   }
 
   acquisitionBicyclesList(): void{

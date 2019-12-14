@@ -10,14 +10,9 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const path = require('path');
-//const jwt = require('jsonwebtoken');
-//var cors = require('cors');
 const PRIVATE_KEY = fs.readFileSync('server.key', 'utf8');
 const PUBLIC_KEY = fs.readFileSync('public.key', 'utf8');
 const PRIVATE_CERT = fs.readFileSync('server.cert', 'utf8');
-
-
-//app.use(cors());
 const options = {
 	//key: fs.readFileSync('/etc/letsencrypt/live/mawfia.eastus.cloudapp.azure.com/privkey.pem'),
 	//cert: fs.readFileSync('/etc/letsencrypt/live/mawfia.eastus.cloudapp.azure.com/fullchain.pem'),
@@ -32,11 +27,11 @@ app.use(noCache());
 app.use(express.static(path.resolve('dist')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(cookieParser('asfgdkaljieaienvonwcnpwefef')); // will need to move key to private location
+app.use(cookieParser('asfgdkaljieaienvonwcnpwefef'));
 app.set('trust proxy', 1);
 app.use(
 	session({
-		secret: 'Andrewssecrect', // will need to move key to privae location
+		secret: 'Davidssecrect',
 		resave: false,
 		proxy: true,
 		saveUninitialized: false,

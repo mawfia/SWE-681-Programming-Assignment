@@ -10,7 +10,6 @@ const PRIVATE_KEY = fs.readFileSync('server.key', 'utf8');
 
 const createKey = () => {
     let key = '';
-    // Creates a random 10-characters (hex values, 0-f) long string
     for(let x = 0; x < 10; x++) key += Math.random() > .5 ? Math.floor(Math.random()*10).toString() : String.fromCharCode(122 - Math.floor(Math.random()*26));
     return key;
 }
@@ -91,21 +90,16 @@ module.exports = {
 	},
 
   renewToken: (request, response, next) => {
-    //console.log(request.headers.token);
-    //console.log(response);
-    console.log("In user controllers renewtoken");
-    //return response.json(true);
-    //next();
+
+    //console.log("In user controllers renewtoken");
   },
 
   getSellersName: (request, response) => {
 
-    //console.log(request.body.ids);
     User.find({_id: { $in: request.body.ids}},
               {"roles":0, "bicycles":0, "birthday":0, "createdAt":0, "updatedAt":0, "key":0, "password":0, "__v":0}, // omit the following fields in query response
               {sort: {'_id': 0}}, // sort in ascending order
               function(err, docs){
-     //console.log(docs);
                 return response.json({docs});
               });
 
@@ -121,7 +115,6 @@ module.exports = {
     },
 
 	all : (request, response) => {
-    //console.log("in user controller all");
 		return response.sendFile(path.resolve("./dist/index.html"));
 	}
 

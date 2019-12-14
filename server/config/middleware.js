@@ -14,8 +14,8 @@ const checkToken = (req, res, next) => {
     jwt.verify(token, PUBLIC_KEY, (err, decoded) => {
       if (err) {
 
-        let event = JSON.stringify({date: new Date().toString(), message: "Attempt to access restricted endpoint with invalid token.", ip: req.ip, URL: req.originalUrl});
-        eventLogger.logEvent('endpoints',event).then( () => console.log("done")).catch( (ex) => console.log(ex.message) );
+        //let event = JSON.stringify({date: new Date().toString(), message: "Attempt to access restricted endpoint with invalid token.", ip: req.ip, URL: req.originalUrl});
+        //eventLogger.logEvent('endpoints',event).then( () => console.log("done")).catch( (ex) => console.log(ex.message) );
         return res.status(403).redirect('back');
 
       } else { next(); }
@@ -48,15 +48,15 @@ const renewToken = (req, res, next) => {
       }
     	else if(err) {
 
-        let event = JSON.stringify({date: new Date().toString(), message: "Token renewl error.", ip: req.ip, URL: req.originalUrl});
-        eventLogger.logEvent('tokens',event).then( () => console.log("done")).catch( (ex) => console.log(ex.message) );
+        //let event = JSON.stringify({date: new Date().toString(), message: "Token renewl error.", ip: req.ip, URL: req.originalUrl});
+        //eventLogger.logEvent('tokens',event).then( () => console.log("done")).catch( (ex) => console.log(ex.message) );
         return res.sendStatus(403).json({ success: false, message: err });
       }
     });
   }
   else {
-    let event = JSON.stringify({date: new Date().toString(), message: "Attempt to access renewal token endpoint without token.", ip: req.ip, URL: req.originalUrl});
-    eventLogger.logEvent('tokens',event).then( () => console.log("done")).catch( (ex) => console.log(ex.message) );
+    //let event = JSON.stringify({date: new Date().toString(), message: "Attempt to access renewal token endpoint without token.", ip: req.ip, URL: req.originalUrl});
+    //eventLogger.logEvent('tokens',event).then( () => console.log("done")).catch( (ex) => console.log(ex.message) );
     return res.json({success: false, message: 'Auth token is not supplied'});
   }
   next();
@@ -70,8 +70,8 @@ const renewToken = (req, res, next) => {
     skipSuccessfulRequests: false,
     onLimitReached: (req, res, options) => { /*console.log(req.rateLimit);*/ },
     handler: (req, res, next) => {
-      let event = JSON.stringify({date: new Date().toString(), message: "Too many invalid login/registeration attempts", ip: req.ip, URL: req.originalUrl});
-      eventLogger.logEvent('login-register',event).then( () => console.log("done")).catch( (ex) => console.log(ex.message) );
+      //let event = JSON.stringify({date: new Date().toString(), message: "Too many invalid login/registeration attempts", ip: req.ip, URL: req.originalUrl});
+      //eventLogger.logEvent('login-register',event).then( () => console.log("done")).catch( (ex) => console.log(ex.message) );
       res.json({success: false,
         error: req.path === '/login' ? `Too many invalid login attempts, please try again after 15 minutes or ${new Date(req.rateLimit.resetTime)}.` : `Too many invalid registration attempts, please try again after 15 minutes.`});
     }

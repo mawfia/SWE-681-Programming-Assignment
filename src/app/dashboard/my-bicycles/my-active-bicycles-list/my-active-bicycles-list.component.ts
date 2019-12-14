@@ -29,7 +29,6 @@ export class MyActiveBicyclesListComponent implements OnInit, OnChanges, OnDestr
 
   ngOnChanges(changes: SimpleChanges){
     if(changes) { this.activeBicyclesList(); this.isLoading = false; }
-    //if(changes['user'] || changes['bicycles') this.activeBicyclesList();
   }
 
   ngOnDestroy(){

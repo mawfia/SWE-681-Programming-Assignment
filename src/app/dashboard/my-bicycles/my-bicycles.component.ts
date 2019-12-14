@@ -55,7 +55,6 @@ export class MyBicyclesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     this.subscription2.unsubscribe();
-    //this.subscription1.unsubscribe();
   }
 
 	previewImage(e: any){
@@ -84,8 +83,7 @@ export class MyBicyclesComponent implements OnInit, OnDestroy {
 		this.uploader.queue = this.uploader.queue.filter( (e,i) => i === this.uploader.queue.length-1 ); //If multiple images were selected and added to the queue, only keep last image in queue.
 		this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
 		this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-			 //console.log('ImageUpload:uploaded:', item, status, response);
-			 //alert('File uploaded successfully');
+
 			 bicycle.seller_id = this.user._id;
        bicycle.status = 'inactive';
 			 bicycle.image = JSON.parse(response).image;

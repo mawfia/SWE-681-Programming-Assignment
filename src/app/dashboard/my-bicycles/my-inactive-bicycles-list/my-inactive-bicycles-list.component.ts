@@ -35,13 +35,11 @@ export class MyInactiveBicyclesListComponent implements OnInit, OnChanges {
   }
 
 	previewImage(e: any, id: number, bicycle: Bicycle): void{
-		//this.preview = document.querySelector(`#bicycle${id}`); //selects the query named img
     this.preview = $(`#bicycle${id}`)[0];
 		const file: any = e.target.files[0] //sames as here
 		const reader: FileReader  = new FileReader();
 		this.errors.image = null;
 
-		// (file) {
 		if(file && !file.type.startsWith('image')) { this.errors = {image:`Invalid file type "${file.type}" selected, must be of type image.`, image_id: id};  return; }
     else if(!file) return;
 
@@ -66,7 +64,6 @@ export class MyInactiveBicyclesListComponent implements OnInit, OnChanges {
 		this.inactive_bicycles = this.bicycles.filter( bicycle => bicycle.seller_id === this.user._id && bicycle.status === 'inactive' );
 	}
 
-	// Check if image has changed, if not update bicycle.  If image has changed, first save old image filename, update image, then save bicycle
 	update(bicycle: Bicycle, id: string, image: string, form_id: number): void{
 
 		bicycle._id = id;
@@ -78,11 +75,9 @@ export class MyInactiveBicyclesListComponent implements OnInit, OnChanges {
 		else{
 			this.uploader.queue = this.uploader.queue.filter( (e,i) => i === this.uploader.queue.length-1 );
 			this.uploader.queue[0].file.name = image; // Add original image filename to request for update on backend
-			//console.log(this.uploader.queue[0]);
 			this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
 			this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
 
-				//alert('Listing updated successfully');
 				 bicycle.image = JSON.parse(response).image;
 				 this.save(bicycle, form_id);
 			 }
@@ -108,7 +103,6 @@ export class MyInactiveBicyclesListComponent implements OnInit, OnChanges {
     update.close_date = bicycle.close_date;
     update.status = "active";
     this.save(update, id);
-    //this._socket.sendMessage('activate');
   }
 
 	save(bicycle: Bicycle, id: number): void{
@@ -127,7 +121,6 @@ export class MyInactiveBicyclesListComponent implements OnInit, OnChanges {
 	}
 
   delete(bicycle: Bicycle): void{
-    //console.log(id);
     this._bicycleService.delete(bicycle);
   }
 

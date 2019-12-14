@@ -18,15 +18,6 @@ export class DashboardComponent implements OnInit {
   constructor(private _authenticationService: AuthenticationService, private _route: ActivatedRoute, private _router: Router, private _socket: SocketService) { }
 
   ngOnInit() {
-    /*this.socket.on('greeting', data => {
-
-      console.log(data.msg);
-    })*/
-
-    //this._socket.getMessages().subscribe( result => { if(result['msg'] === "logout") { this._authenticationService.logout().subscribe( () => this._router.navigate(['/']) )}});
-    //this._socket.connectSocket();
-
-    //this._socket.sendMessage("This should work for updating all bidders.");
 
 	   this._authenticationService.getLoggedInUser().subscribe( success => this.user = success['user'] );
 

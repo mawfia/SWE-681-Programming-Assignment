@@ -19,7 +19,6 @@ module.exports = app => {
     })
 
 	app.post('/user', tokenValidator.checkToken, (request, response, next) => {
-    //if(request.success) console.log("checking middleware for user route.");
     users.getLoggedInUser(request, response, next);
 	})
 
@@ -28,11 +27,10 @@ module.exports = app => {
   })
 
     app.post('/login', tokenValidator.loginLimiter, (request, response) => {
-        //console.log(request.ip);
         users.login(request, response);
     })
 
-    app.delete('/logout', (request, response) => {
+    app.delete('/logout', tokenValidator.loginLimiter, (request, response) => {
 
         users.logout(request, response);
     })
@@ -42,7 +40,6 @@ module.exports = app => {
 	})
 
   app.post('/bicycle/get', tokenValidator.checkToken, (request, response) => {
-    //console.log("in the /bicycles/get path");
     bicycles.get(request, response);
 
   })
@@ -54,13 +51,11 @@ module.exports = app => {
 
     app.post('/bicycles/create', tokenValidator.checkToken, (request, response) => {
 
-		//console.log(request.file);
         bicycles.create(request, response);
     })
 
     app.post('/bicycles/delete', tokenValidator.checkToken, (request, response) => {
 
-    //console.log(request.file);
         bicycles.destroy(request, response);
     })
 
@@ -70,13 +65,11 @@ module.exports = app => {
 	})
 
 	app.post('/image/create', tokenValidator.checkToken, upload.single('image'), (request, response) => {
-		// request.file contains image
 
         images.create(request, response);
     })
 
 	app.post('/image/update', tokenValidator.checkToken, upload.single('image'), (request, response) => {
-		// request.file contains image
 
         images.update(request, response);
     })
@@ -86,7 +79,6 @@ module.exports = app => {
     })
 
 	app.all('*', (request, response, next) => {
-    console.log("testing.");
 		users.all(request, response, next);
 	})
 }
