@@ -6,8 +6,7 @@ Scheduled Release Date: 13 December 2019<br>
 
 INTRODUCTION:
 --------------------
-This is a MongoDB, Express.js, Angular 8, Node.js, Socket.io application.  This application is also best viewed on desktop with mobile device awareness that will gradually become more PWA friendly.<br><br>
-<p><b>**Still under construction, security features covered during SWE 681 will be implemented as the course progresses.**</b></p>
+This is a MongoDB, Express.js, Angular 8, Node.js, Socket.io application.  The SWE 681 version of this application was officially completed today and the plan is to continue styling the application as time allows.  This application is also best viewed on desktop with mobile device awareness that will gradually become more PWA friendly.
 
 UPDATES:
 --------------------
