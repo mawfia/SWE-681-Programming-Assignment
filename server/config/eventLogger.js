@@ -1,6 +1,6 @@
 'use strict';
 
-const CONNECT_STR = "DefaultEndpointsProtocol=https;AccountName=swe681diag290;AccountKey=UCRwV/x01pLitbeyGJYMi0TGx5QLuuWYVynAxMQIjNMKAkNhHzXZY5wlxPZeoy5uyUbqj2WERu97nNXC0wv2ZQ==;EndpointSuffix=core.windows.net"
+const CONNECT_STR = "DefaultEndpointsProtocol=" //The full key has intentionally been deleted due to being a paid monthly service.  Feel free to view the report screen shots or I can always give another demo.
 const CONTAINER_NAME = 'errorlog';
 const { BlobServiceClient } = require('@azure/storage-blob');
 const uuidv1 = require('uuid/v1');
@@ -18,9 +18,6 @@ const logEvent = async (container, data) => {
   console.log("Blob was uploaded successfully. requestId: ", uploadBlobResponse.requestId);
 
 };
-
-//logEvent().then( () => console.log("done")).catch( (ex) => console.log(ex.message) );
-
 
  module.exports = {
    logEvent: logEvent
