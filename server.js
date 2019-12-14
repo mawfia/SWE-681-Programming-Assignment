@@ -11,13 +11,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const PRIVATE_KEY = fs.readFileSync('server.key', 'utf8');
-const PUBLIC_KEY = fs.readFileSync('public.key', 'utf8');
 const PRIVATE_CERT = fs.readFileSync('server.cert', 'utf8');
 const options = {
-	//key: fs.readFileSync('/etc/letsencrypt/live/mawfia.eastus.cloudapp.azure.com/privkey.pem'),
-	//cert: fs.readFileSync('/etc/letsencrypt/live/mawfia.eastus.cloudapp.azure.com/fullchain.pem'),
-	//dhparam: fs.readFileSync('/etc/letsencrypt/live/mawfia.eastus.cloudapp.azure.com/dh-strong.pem')
-	//dhparam: fs.readFileSync('/etc/letsencrypt/live/mawfia.eastus.cloudapp.azure.com/dhparam4096.pem')
 	key: PRIVATE_KEY,
 	cert: PRIVATE_CERT
 };
