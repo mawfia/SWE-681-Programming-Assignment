@@ -1,0 +1,31 @@
+<app-navigation></app-navigation>
+<h1>Marketplace Listings</h1>
+<form style="margin: auto; width: 25%;" class="w3-container">
+	<input
+		type="text"
+		name="title"
+		[(ngModel)]="title"
+		class="w3-input w3-border w3-animate-input w3-border w3-border-black w3-opacity-min w3-round-large"
+		style="margin: auto; width: 40%;"
+		placeholder="Search Title"
+	>
+</form>
+<ng-template [ngIf]="bicycles.length == 0" [ngIfElse]="bicycleList">
+	<h1 style="text-align:center; color: blue;">No bicycles in marketplace.</h1>
+</ng-template>
+<div class="w3-opacity-min loader" style="margin: 0px auto;" *ngIf="isLoading"></div>
+<ng-template #bicycleList>
+	<div class="bicycle" *ngIf="bicycles.length > 0">
+		<div *ngFor="let bicycle of bicycles | search:title, let i = index" class="w3-card-4 w3-white" style="width: 50%; margin: 15px auto;">
+			<a href="#" [routerLink]="['/bicycle', bicycle._id]" style="text-decoration:none;">
+        <h3>{{bicycle.title}}</h3>
+        <img src="{{URL}}{{bicycle.image}}" style="width: 100%;">
+        <p>{{ (bicycle.description.length > 20) ? (bicycle.description | slice:0:20) + '...' : (bicycle.description) }}</p>
+        <p>Location: {{bicycle.location}}</p>
+				<p *ngIf="!bicycle.bid_amount">No bids, first bid amount: ${{bicycle.start_price}}</p>
+        <p *ngIf="bicycle.bid_amount >= bicycle.start_price">Current Bid: ${{bicycle.bid_amount}}</p>
+				<p>Auction Closing Date and Time: {{bicycle.close_date | date: 'medium'}}</p>
+			</a>
+		</div>
+	</div>
+</ng-template>

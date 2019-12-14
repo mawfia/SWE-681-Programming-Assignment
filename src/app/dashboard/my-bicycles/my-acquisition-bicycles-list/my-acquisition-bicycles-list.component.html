@@ -1,0 +1,22 @@
+<ng-template [ngIf]="acquisition_bicycles.length === 0" [ngIfElse]="bicycleList">
+	<h1 style="text-align:center; color: white;">No bicycles in acquisition list.</h1>
+</ng-template>
+<spinner style="color: white;" *ngIf="isLoading"></spinner>
+<ng-template #bicycleList>
+	<div *ngIf="acquisition_bicycles.length > 0" class="w3-container w3-card-2 w3-border w3-border-white w3-gray w3-round-large" style="width: 50%; margin: 0px auto;">
+		<h2 style="color: white;">Bicycle Acquisitions</h2>
+		<div *ngFor="let bicycle of acquisition_bicycles, let i = index" class="w3-card-4 w3-black w3-border w3-border-black w3-round-large" style="margin: 0px auto; width:80%;">
+			     <img src="{{URL}}{{bicycle.image}}" style="width: 100%;">
+					 <div class="w3-center">
+					 <h3>{{bicycle.title}}</h3>
+	   			<p>{{bicycle.description}}</p>
+	 				<p>Listing Status: Sold to {{user.first_name}} {{user.last_name}}</p>
+					<p>Auction End Date: {{bicycle.close_date | date: 'medium'}}</p>
+					<p>Winning Bid Amount: ${{bicycle.bid_amount}}</p>
+ 		     <p *ngIf="bicycle.seller">Seller: {{bicycle.seller.first_name}} {{bicycle.seller.last_name}}</p>
+				 <spinner style="color: red;" *ngIf="!bicycle.seller"></spinner>
+ 			   <p>Location: {{bicycle.location}}</p>
+				 </div>
+			</div>
+		</div>
+</ng-template>

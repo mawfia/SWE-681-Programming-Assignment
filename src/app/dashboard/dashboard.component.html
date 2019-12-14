@@ -1,0 +1,36 @@
+<app-navigation></app-navigation>
+<h1 style="color:white;" style="text-shadow:3px 1px 0 #444" class="w3-text-white w3-jumbo">{{user.first_name}}'s Dashboard <i class="fa fa-spinner w3-spin" style="font-size:64px; color: white;"></i></h1>
+<div class="w3-card-4 w3-border w3-border-white w3-round-large" style="width:50%; margin: 0px auto;"><img src="assets/marketplace2.jpg" class="w3-hover-sepia" style="width:100%"></div>
+<div class="w3-responsive" style="width:50%; margin: 0px auto;">
+	<table class="w3-table-all w3-hoverable w3-border w3-round-large">
+		<tbody>
+			<tr>
+				<td>First Name:</td><td>{{user.first_name}}</td>
+			</tr>
+			<tr>
+				<td>Last Name:</td><td>{{user.last_name}}</td>
+			</tr>
+			<tr>
+				<td>Email:</td><td>{{user.email}}</td>
+			</tr>
+			<tr>
+				<td>Birthday:</td><td>{{user.birthday | date:'longDate'}}</td>
+			</tr>
+			<tr>
+				<td>Address 1:</td><td>{{user.address1}}</td>
+			</tr>
+			<tr>
+				<td>Address 2:</td><td>{{user.address2}}</td>
+			</tr>
+			<tr>
+				<td>City:</td><td>{{user.city}}</td>
+			</tr>
+			<tr>
+				<td>State:</td><td>{{user.state}}</td>
+			</tr>
+			<tr>
+				<td>Permission Level:</td><td>{{user.roles}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

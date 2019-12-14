@@ -1,0 +1,112 @@
+<app-navigation></app-navigation>
+<h1 style="color:white;">{{user.first_name}}'s Bicycles</h1>
+<div class="bicycle w3-container w3-card-2 w3-black w3-border w3-border-white w3-round-large w3-animate-opacity">
+<h2>Create Listing</h2>
+
+	<form #formData='ngForm' (submit)="create(formData.value)" novalidate>
+		<div class="upload-btn-wrapper">
+			<button class="btn w3-button w3-black w3-border w3-ripple w3-round-large">Upload a file</button>
+			<input
+				ng2FileSelect
+				[uploader]="uploader"
+				type="file"
+				name="image"
+				required
+				[(ngModel)]="bicycle.image"
+				#image="ngModel"
+				(change)="previewImage($event)"
+				class="w3-input w3-border w3-round"
+			/>
+			<img src="" alt="" id="image" accept="image/*" >
+			<span *ngIf=" errors && errors.image" id="error1" class="error w3-small"><b>{{errors.image}}</b></span>
+		</div>
+		<div>
+			<label>Title:</label>
+			<input
+				type="text"
+				name="title"
+				required
+				minlength="2"
+				maxlength="35"
+				[(ngModel)]="bicycle.title"
+				#title="ngModel"
+				class="w3-input w3-border w3-round"
+			/>
+				<span *ngIf="title.errors && title.dirty" class="warning w3-small">Title must be valid.</span>
+				<span *ngIf="!title.errors && title.dirty" class="valid w3-small">Valid.</span>
+			<label>Description:</label>
+			<textarea
+				name="description"
+				required
+				maxlength="250"
+				rows="7"
+				cols="50"
+				[(ngModel)]="bicycle.description"
+				#description="ngModel"
+				class="w3-input w3-border w3-round"
+			></textarea>
+			<span *ngIf="description.errors && description.dirty" class="warning w3-small">Description must be valid</span>
+			<span *ngIf="!description.errors && description.dirty" class="valid w3-small">Valid</span>
+		</div>
+		<div>
+			<label>Starting Bid Price:</label>
+			<input
+				type="number"
+				name="start_price"
+				required
+				min="0"
+				max="999999"
+				placeholder="$0 - $999,999"
+				[(ngModel)]="bicycle.start_price"
+				#start_price="ngModel"
+				class="w3-input w3-border w3-round"
+			/>
+				<span *ngIf="start_price.errors && start_price.dirty" class="warning w3-small" style="margin: 0px;">Starting price must be in whole US dollar amounts.</span>
+				<span *ngIf="!start_price.errors && start_price.dirty" class="valid w3-small" style="margin: 0px;">Valid.</span>
+				<span *ngIf="errors && errors.start_price" class="error w3-small">{{errors.start_price}}</span>
+			<label>Minimum Selling Price:</label>
+			<input
+				type="number"
+				name="min_price"
+				required
+				min="1"
+				max="999999"
+				placeholder="$1 - $999,999"
+				[(ngModel)]="bicycle.min_price"
+				#min_price="ngModel"
+				class="w3-input w3-border w3-round"
+			/>
+				<span *ngIf="min_price.errors && min_price.dirty" class="warning w3-small">Minimum selling price must be in whole US dollar amounts between $1 and $1,000,000.</span>
+				<span *ngIf="!min_price.errors && (bicycle.min_price <= bicycle.start_price)" class="error w3-small">Minimum selling price must be greater than starting price.</span>
+				<span *ngIf="!min_price.errors && !(errors && errors.min_price) && (bicycle.min_price > bicycle.start_price) && min_price.dirty" class="valid w3-small">Valid.</span>
+				<span *ngIf="errors && errors.min_price" class="error w3-small">{{errors.min_price}}</span>
+			<label>Location:</label>
+			<input
+				type="text"
+				name="location"
+				required
+				placeholder="Austin, TX"
+				pattern="^[a-zA-Z ]{3,45}, ?[a-zA-Z]{2}$"
+				[(ngModel)]="bicycle.location"
+				#location="ngModel"
+				class="w3-input w3-border w3-round"
+			/>
+				<span *ngIf="location.errors && location.dirty" class="warning w3-small">Location must be city, state abbreviation (i.e. Arlington, VA).</span>
+				<span *ngIf="!checkState(bicycle.location) && location.dirty" class="error w3-small">Invalid city or state.</span>
+				<span *ngIf="!location.errors && location.dirty && checkState(bicycle.location)" class="valid w3-small">Valid city and state.</span>
+			<input
+				type="submit"
+				value="Create"
+				[disabled]="title.errors || description.errors || start_price.errors || location.errors || min_price.errors || !uploader.getNotUploadedItems().length"
+				class="w3-btn w3-black w3-border w3-ripple w3-round-large w3-large"
+				>
+		</div>
+	</form>
+	<span *ngIf="error" class="error" style="text-align:center;">{{ error }}</span>
+</div>
+<hr>
+<app-my-inactive-bicycles-list [states]="states" [user]="user" [bicycles]="bicycles" [isLoading]="isLoading"></app-my-inactive-bicycles-list>
+<hr>
+<app-my-active-bicycles-list [user]="user" [bicycles]="bicycles" [isLoading]="isLoading"></app-my-active-bicycles-list>
+<hr>
+<app-my-acquisition-bicycles-list [user]="user" [bicycles]="bicycles" [isLoading]="isLoading"></app-my-acquisition-bicycles-list>

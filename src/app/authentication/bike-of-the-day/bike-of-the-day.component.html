@@ -1,0 +1,8 @@
+<div class="w3-opacity-min loader" style="margin: 10px auto;" *ngIf="isLoading"></div>
+<div *ngIf="bike_of_the_day" id="bike_of_the_day" class="w3-card-4 w3-black w3-border w3-border-white w3-round-large w3-opacity-min w3-container">
+  <h2 class="w3-text-white w3-xxlarge">Bike of The Day</h2>
+  <h3>{{bike_of_the_day.title}}</h3>
+  <img src="{{URL}}{{bike_of_the_day.image}}" style="width:100%;">
+  <p *ngIf="!bike_of_the_day.bid_amount || bike_of_the_day.bid_amount == 0">No bids, first bid amount: ${{bike_of_the_day.start_price}}</p>
+  <p *ngIf="bike_of_the_day.bid_amount && bike_of_the_day.bid_amount > bike_of_the_day.start_price">Current Bid: ${{bike_of_the_day.bid_amount}}</p>
+</div>

@@ -1,0 +1,123 @@
+<div id="registration" class="w3-card-4 w3-black w3-border w3-border-white w3-round-large w3-opacity-min" style="width:40%; margin: 0px auto;">
+    <form class="w3-container" #formData='ngForm' (submit)="register(formData.value)" novalidate>
+            <h2>Registration Information</h2>
+            <label>First Name:</label>
+            <input
+                type="text"
+                name="first_name"
+                minlength="2"
+                maxlength="25"
+                required
+                [(ngModel)]="guest.first_name"
+                #first_name="ngModel"
+                class="w3-input w3-border w3-round"
+            /><div><span *ngIf="first_name.errors && first_name.dirty" class="warning"> First Name must be 2-25 characters in length.</span>
+                <span *ngIf="!first_name.errors && first_name.dirty" class="valid"> Valid.</span></div>
+            <label>Last Name:</label>
+            <input
+                type="text"
+                name="last_name"
+                minlength="2"
+                maxlength="25"
+                required
+                [(ngModel)]="guest.last_name"
+                #last_name="ngModel"
+                class="w3-input w3-border w3-round"
+            /><div><span *ngIf="last_name.errors && last_name.dirty" class="warning"> Last Name must be 2-25 characters in length.</span>
+                <span *ngIf="!last_name.errors && last_name.dirty" class="valid"> Valid.</span></div>
+            <label>Email:</label>
+            <input
+                type="email"
+                name="email"
+                required
+                pattern="^[a-zA-Z0-9.!#$%&’*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                [(ngModel)]="guest.email"
+                #email="ngModel"
+                class="w3-input w3-border w3-round"
+            /><div><span *ngIf="email.errors && email.dirty" class="warning"> Email must be valid.</span>
+                <span *ngIf="!email.errors && email.dirty && !(errors && errors.email)" class="valid"> Valid.</span>
+				<span *ngIf="errors && errors.email" class="error">{{ errors.email }}</span></div>
+            <label>Birthday:</label>
+            <input
+                type="date"
+                name="birthday"
+                required
+                [(ngModel)]="guest.birthday"
+                #birthday="ngModel"
+                class="w3-input w3-border w3-round"
+            /><div><span *ngIf="birthday.errors && birthday.dirty" class="warning"> Missing birthday.</span>
+                <span *ngIf="!birthday.errors && birthday.dirty && !(errors && errors.birthday)" class="valid"> Valid.</span>
+				<span *ngIf="(errors && errors.birthday)" class="error">{{ errors.birthday }}</span></div>
+			      <label>Password:</label>
+            <input
+                type="password"
+                name="password"
+                required
+                pattern="^(?=.*[0-9])(?=.*[A-Z])\S{8,16}$"
+                [(ngModel)]="guest.password"
+                #password="ngModel"
+                class="w3-input w3-border w3-round"
+            /><div><span *ngIf="password.errors && password.dirty" class="warning"> Password must be 8-16 characters and include one uppercase letter and number.</span>
+                <span *ngIf="!password.errors && password.dirty" class="valid"> Valid.</span></div>
+            <label>Confirm Password:</label>
+            <input
+                type="password"
+                name="cpassword"
+                required
+                pattern="^(?=.*[0-9])(?=.*[A-Z])\S{8,16}$"
+                [(ngModel)]="guest.cpassword"
+                #cpassword="ngModel"
+                class="w3-input w3-border w3-round"
+            /><div><span *ngIf="guest.password != guest.cpassword" class="warning"> Passwords do not match.</span>
+                <span *ngIf="!password.errors && password.dirty && (guest.password == guest.cpassword)" class="valid"> Passwords match.</span></div>
+            <label>Street Address:</label>
+            <input
+                type="text"
+                name="address1"
+                minlength="2"
+                maxlength="25"
+                required
+                [(ngModel)]="guest.address1"
+                #address1="ngModel"
+                class="w3-input w3-border w3-round"
+            /><div><span *ngIf="address1.errors && address1.dirty" class="warning"> Address must be 2-25 characters in length.</span>
+                <span *ngIf="!address1.errors && address1.dirty" class="valid"> Valid.</span></div>
+            <label>Unit/Apt#:</label>
+            <input
+                type="text"
+                name="address2"
+                [(ngModel)]="guest.address2"
+                #address2="ngModel"
+                class="w3-input w3-border w3-round"
+            /><br>
+            <label>City:</label>
+            <input
+                type="text"
+                name="city"
+                required
+                pattern="^[a-zA-Z]{2,25}$"
+                [(ngModel)]="guest.city"
+                #city="ngModel"
+                class="w3-input w3-border w3-round"
+            /><div><span *ngIf="city.errors && city.dirty" class="warning"> City must be 2-25 characters in length and contain no numbers or special characters.</span>
+                <span *ngIf="!city.errors && city.dirty" class="valid"> Valid.</span></div>
+            <label>State:</label>
+            <select
+                name="state"
+                required
+                [(ngModel)]="guest.state"
+                #state="ngModel"
+                class="w3-input w3-border w3-round"
+                style="max-width: 40%; min-width: 150px;"
+                >
+                <option *ngFor="let state of states" [value]="state">{{state}}</option>
+            </select><div><span *ngIf="state.errors && state.touched" class="warning"> State is required.</span></div>
+            <input
+			         [disabled]="first_name.errors || last_name.errors || email.errors || password.errors || cpassword.errors || address1.errors || city.errors"
+			         type="submit"
+			         value="Register"
+               class="w3-button w3-black w3-border w3-ripple w3-round-large"
+			      >
+    </form>
+    <p *ngIf="error" class="error" style="text-align:center;">{{ error }}</p>
+</div>

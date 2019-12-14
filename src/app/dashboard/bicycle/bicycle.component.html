@@ -1,0 +1,25 @@
+<app-navigation></app-navigation>
+<div class="w3-opacity-min loader" style="margin: 0px auto;" *ngIf="isLoading"></div>
+<div *ngIf="bicycle" class="w3-card-4 w3-white" style="width: 50%; margin: 15px auto;">
+    <h2 style="text-align: center;">{{bicycle.title}}</h2>
+    <img src="{{URL}}{{bicycle.image}}" style="width: 100%;">
+    <p>{{bicycle.description}}</p>
+    <p>{{bicycle.location}}</p>
+    <p *ngIf="!bicycle.bid_amount">No bids, first bid amount: ${{bicycle.start_price}}</p>
+    <p *ngIf="bicycle.bid_amount >= bicycle.start_price">Current Bid: ${{bicycle.bid_amount}}</p>
+    <p>{{bicycle.status}}</p>
+    <p>Auction Closing Date and Time: {{bicycle.close_date | date: 'medium'}}</p>
+    <p>Time Remaining: {{bicycle.remaining | realtime}}</p>
+    <form *ngIf="bicycle.seller_id != user._id" #formData='ngForm' novalidate>
+      <label>Bid Amount:</label>
+      <input
+        type="text"
+        name="bid_amount"
+        pattern="^[0-9]{1,4}$"
+        [(ngModel)]="update.bid_amount"
+        #bid_amount="ngModel"
+      />
+      <button (click)="bid(update)">Bid</button>
+    </form>
+    <span *ngIf="error" style="color: red;">{{error.bid_amount}}</span>
+</div>

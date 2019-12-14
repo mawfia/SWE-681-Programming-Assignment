@@ -1,0 +1,68 @@
+<ng-template [ngIf]="active_bicycles.length == 0" [ngIfElse]="bicycleList">
+	<h1 style="text-align:center; color: white;">No bicycles in active list.</h1>
+</ng-template>
+<spinner style="color: white;" *ngIf="isLoading"></spinner>
+<ng-template #bicycleList>
+	<div *ngIf="active_bicycles.length > 0" class="bicycle w3-container w3-card-2 w3-black w3-border w3-border-white w3-round-large w3-animate-opacity">
+		<h2>Edit Active Listings</h2>
+		<form *ngFor="let bicycle of active_bicycles, let i = index" id="active_form{{i}}" #formData='ngForm' novalidate>
+			<div><img src="{{URL}}{{bicycle.image}}"></div>
+			<div>
+				<label>Title:</label>
+				<input
+					type="text"
+					name="title"
+					required
+					minlength="2"
+					maxlength="35"
+					[(ngModel)]="bicycle.title"
+					#title="ngModel"
+					class="w3-input w3-border w3-round"
+				/><h4>
+					<span *ngIf="title.errors && title.dirty" class="error w3-small">Invalid description.</span>
+					<span *ngIf="!title.errors && title.dirty" class="valid w3-small"> Valid.</span>
+					<span *ngIf="errors && errors.id == i && errors.title" class="error w3-small">{{errors.title}}</span>
+				</h4>
+				<label>Description:</label>
+				<textarea
+					name="description"
+					required
+					maxlength="250"
+					rows="4"
+					cols="50"
+					[(ngModel)]="bicycle.description"
+					#description="ngModel"
+					class="w3-input w3-border w3-round"
+				></textarea>
+				<span *ngIf="description.errors && description.dirty" class="error w3-small">Invalid description.</span>
+				<span *ngIf="!description.errors && description.dirty" class="valid w3-small">Valid</span>
+				<span *ngIf="errors && errors.id == i && errors.description" class="error w3-small">{{errors.description}}</span>
+				<p>Listing Status: {{bicycle.status}}</p>
+				<p *ngIf="bicycle.bid_amount >= bicycle.start_price">Current Bid: ${{bicycle.bid_amount}}</p>
+				<p *ngIf="!bicycle.bid_amount">No bids, first bid amount: ${{bicycle.start_price}}</p>
+				<p>Auction Closing Date and Time: {{bicycle.close_date | date: 'medium'}}</p>
+				<p *ngIf="bicycle.remaining">Time Remaining: {{bicycle.remaining | realtime}}</p>
+			</div>
+			<div>
+		     <p>Starting Bid Price: ${{bicycle.start_price}}</p>
+		     <p>Minimum Selling Price: ${{bicycle.min_price}}</p>
+			   <p>Location: {{bicycle.location}}</p>
+				<button
+					(click)="update(formData.value, bicycle._id, i)"
+					[disabled]="(title.errors || description.errors ||(errors && errors.id == i)) || !(title.dirty || description.dirty)"
+					class="w3-btn w3-black w3-border w3-ripple w3-round-large w3-medium"
+					id="update_active{{i}}"
+					>Update
+				</button>
+				<button
+					[disabled]="!(description.dirty || title.dirty)"
+					(click)="cancel(bicycle, i, bicycle._id)"
+					class="w3-btn w3-black w3-border w3-ripple w3-round-large w3-medium"
+					id="cancel_active{{i}}"
+					>Cancel
+				</button>
+			</div>
+		</form>
+		<!-- <span *ngIf="error" class="error" style="text-align:center;">{{ error }}</span> -->
+	</div>
+</ng-template>

@@ -1,0 +1,146 @@
+<ng-template [ngIf]="inactive_bicycles.length == 0" [ngIfElse]="bicycleList">
+	<h1 style="text-align:center; color: white;">No bicycles in inactive list.</h1>
+</ng-template>
+<spinner style="color: white;" *ngIf="isLoading"></spinner>
+<ng-template #bicycleList>
+	<div *ngIf="inactive_bicycles.length > 0" class="bicycle w3-container w3-card-2 w3-black w3-border w3-border-white w3-round-large w3-animate-opacity">
+		<h2>Edit/Delete Inactive Listings</h2>
+		<form *ngFor="let bicycle of inactive_bicycles, let i = index" id="form{{i}}" #formData='ngForm' novalidate>
+			<div class="upload-btn-wrapper">
+				<input
+					ng2FileSelect
+					[uploader]="uploader"
+					type="file"
+					name="image"
+					required
+					[(ngModel)]="bicycle.file"
+					#file="ngModel"
+					(change)="previewImage($event, i, bicycle)"
+					class="w3-input w3-border w3-round"
+				/>
+				<img src="{{URL}}{{bicycle.image}}" id="bicycle{{i}}" alt="" accept="image/*">
+				<span style="display: inline-block;" *ngIf=" errors && errors.image_id == i" id="error1" class="error w3-small"><b>{{errors.image}}</b></span>
+			</div>
+			<div>
+				<label>Title:</label>
+				<input
+					type="text"
+					name="title"
+					required
+					minlength="2"
+					maxlength="35"
+					[(ngModel)]="bicycle.title"
+					#title="ngModel"
+					class="w3-input w3-border w3-round"
+				/>
+					<span *ngIf="title.errors && title.dirty" class="error w3-small">Title must be valid.</span>
+					<span *ngIf="!title.errors && title.dirty" class="valid w3-small">Valid.</span>
+					<span *ngIf="errors && errors.id == i && errors.title" class="error w3-small">{{errors.title}}</span>
+				<label>Closing Date and Time:</label>
+				<input
+					type="datetime-local"
+					name="close_date"
+					required
+					[ngModel]="bicycle.close_date | date: 'yyyy-MM-ddTHH:mm:ss'"
+					#close_date="ngModel"
+					(change)="convertDate($event, bicycle)"
+					class="w3-input w3-border w3-round"
+					/>
+					<!--min="2001-01-01T00:00:00"-->
+					<!--max="2019-12-31T00:00:00"-->
+						<span *ngIf="close_date.errors && !close_date.touched" class="warning w3-small">Select a close date and time. </span>
+						<span *ngIf="close_date.errors && close_date.dirty" class="error w3-small"> Date and Time must be valid. </span>
+						<span *ngIf="!close_date.errors && close_date.dirty" class="valid w3-small"> Valid.</span>
+						<span *ngIf="errors && errors.id == i && errors.close_date" class="error w3-small">{{errors.close_date}}</span>
+						<!--<span *ngIf="errors && errors.status" class="error w3-small">{{errors.status}}</span>-->
+				<label>Description:</label>
+				<textarea
+					name="description"
+					required
+					maxlength="250"
+					rows="4"
+					cols="50"
+					[(ngModel)]="bicycle.description"
+					#description="ngModel"
+					class="w3-input w3-border w3-round"
+				></textarea>
+				<span *ngIf="description.errors && description.dirty" class="error w3-small">Description must be valid.</span>
+				<span *ngIf="!description.errors && description.dirty" class="valid w3-small">Valid.</span>
+				<span *ngIf="errors && errors.id == i && errors.description" class="error w3-small">{{errors.description}}</span>
+				<p>Listing Status: {{bicycle.status}}</p>
+			</div>
+			<div>
+				<label>Starting Bid Price:</label>
+				<input
+					type="number"
+					name="start_price"
+					required
+					min="0"
+					max="999999"
+					placeholder="$0 - $999,999"
+					[(ngModel)]="bicycle.start_price"
+					#start_price="ngModel"
+					class="w3-input w3-border w3-round"
+				/>
+					<span *ngIf="start_price.errors && start_price.dirty" class="error w3-small">Starting price must be in whole US dollar amounts.</span>
+					<span *ngIf="!start_price.errors && start_price.dirty" class="valid w3-small">Valid.</span>
+					<span *ngIf="errors && errors.id == i && errors.start_price" class="error w3-small">{{errors.start_price}}</span>
+				<label>Minimum Selling Price:</label>
+				<input
+					type="number"
+					name="min_price"
+					required
+					min="1"
+					max="999999"
+					placeholder="$1 - $999,9999"
+					[(ngModel)]="bicycle.min_price"
+					#min_price="ngModel"
+					class="w3-input w3-border w3-round"
+				/>
+					<span *ngIf="min_price.errors && min_price.dirty" class="error w3-small">Minimum selling price must be in whole US dollar amounts starting at 1 dollar. </span>
+					<span *ngIf="!min_price.errors && (bicycle.min_price < bicycle.start_price)" class="error w3-small">Minimum selling price must be greater than starting price. </span>
+					<span *ngIf="!min_price.errors && !(bicycle.min_price < bicycle.start_price) && min_price.dirty" class="valid w3-small">Valid.</span>
+					<span *ngIf="errors && errors.id == i && errors.min_price" class="error w3-small">{{errors.min_price}}</span>
+				<label>Location:</label>
+				<input
+					type="text"
+					name="location"
+					required
+					placeholder="Austin, TX"
+					pattern="^[a-zA-Z ]{3,45}, ?[a-zA-Z]{2}$"
+					[(ngModel)]="bicycle.location"
+					#location="ngModel"
+					class="w3-input w3-border w3-round"
+				/>
+					<span *ngIf="location.errors && location.dirty" class="warning w3-small"> Location must be city, state abbreviation (i.e. Arlington, VA).</span>
+					<span *ngIf="!checkState(bicycle.location) && location.dirty" class="error w3-small"> Invalid city or state.</span>
+					<span *ngIf="!location.errors && location.dirty && checkState(bicycle.location)" class="valid w3-small"> Valid city and state.</span>
+					<span *ngIf="errors && errors.id == i && errors.location" class="error w3-small">{{errors.location}}</span>
+				<button
+					(click)="update(formData.value, bicycle._id, bicycle.image, i)"
+					[disabled]="(title.errors || description.errors || start_price.errors || min_price.errors || location.errors || close_date.error) ||
+					(bicycle.min_price <= bicycle.start_price) || !(title.dirty || description.dirty || start_price.dirty || min_price.dirty || location.dirty || close_date.dirty)"
+					class="w3-btn w3-black w3-border w3-ripple w3-round-large w3-medium"
+					id="update{{i}}"
+					>Update</button>
+				<button
+					[disabled]="!(file.dirty || location.dirty || start_price.dirty || description.dirty || min_price.dirty || title.dirty || close_date.dirty)"
+					(click)="cancel(i, bicycle._id)"
+					class="w3-btn w3-black w3-border w3-ripple w3-round-large w3-medium"
+					id="cancel{{i}}"
+					>Cancel</button>
+				<button
+					(click)="activate(bicycle, bicycle._id, i)"
+					[disabled]="(title.errors || description.errors || start_price.errors || min_price.errors || location.errors || close_date.errors || file.error) ||
+					(bicycle.min_price <= bicycle.start_price)"
+					class="w3-btn w3-black w3-border w3-ripple w3-round-large w3-medium"
+					>Auction</button>
+				<button
+					(click)="delete(bicycle, bicycle._id)"
+					class="w3-btn w3-black w3-border w3-ripple w3-round-large w3-medium"
+					>Delete</button>
+			</div>
+		</form>
+		<!--<span *ngIf="errors" class="error" style="text-align:center;">{{ error }}</span>-->
+	</div>
+</ng-template>
