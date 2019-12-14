@@ -1,6 +1,0 @@
-<h1>Bicycle Marketplace</h1>
-<button (click)="authenticate(0)" *ngIf="toggleAuthentication">Register</button>
-<button (click)="authenticate(1)" *ngIf="!toggleAuthentication">Login</button>
-<app-bike-of-the-day></app-bike-of-the-day>
-<app-login *ngIf="toggleAuthentication" [guest]="guest" (authenticated)="authenticated()"></app-login>
-<app-registration *ngIf="!toggleAuthentication" [guest]="guest" (authenticated)="authenticated()"></app-registration>
