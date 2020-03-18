@@ -1,7 +1,7 @@
 Alternate Programming Assignment for SWE 681 taught by Dr. Wheeler<br>
 M. Andrew Williams<br>
 Created: 11 September 2019<br>
-Updated: 13 December 2019<br>
+Updated: 17 March 2020<br>
 Scheduled Release Date: 13 December 2019<br>
 
 INTRODUCTION:
@@ -72,7 +72,7 @@ HOW TO USE:
 Production environment contains a prototype application allowing users to create, view, update, auction, or bid on bicycle listings.  Wireframes depict 'how to use' and will eventually be updated to show bidding procedures.  Login with "test@test.com", password "!QAZzaq1" or create your own account.
 
 
-Production environment application may be viewed at: http://mawfia.eastus.cloudapp.azure.com/
+Production environment application may be viewed at: https://mawfia.eastus.cloudapp.azure.com/
 
 Current Maintainer:
  * M. Andrew Williams
